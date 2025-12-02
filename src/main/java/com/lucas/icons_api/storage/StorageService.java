@@ -11,6 +11,7 @@ public class StorageService {
 
     private final String escudosDir = "uploads/escudos/";
     private final String bandeirasDir = "uploads/bandeiras/";
+    private final String jogadoresDir = "uploads/jogadores/";
 
     public String salvarEscudo(MultipartFile file, String nomeFinal) throws IOException {
         return salvarArquivo(file, escudosDir, nomeFinal);
@@ -18,6 +19,10 @@ public class StorageService {
 
     public String salvarBandeira(MultipartFile file, String nomeFinal) throws IOException {
         return salvarArquivo(file, bandeirasDir, nomeFinal);
+    }
+
+    public String salvarJogador(MultipartFile file, String nomeFinal) throws IOException {
+        return salvarArquivo(file, jogadoresDir, nomeFinal);
     }
 
     private String salvarArquivo(MultipartFile file, String dir, String nomeFinal) throws IOException {

@@ -16,5 +16,9 @@ public class StorageConfig implements WebMvcConfigurer {
         registry
                 .addResourceHandler("/escudos/**")
                 .addResourceLocations("file:uploads/escudos/");
+
+        registry
+                .addResourceHandler("/jogadores/**")
+                .addResourceLocations("file:uploads/jogadores/");
     }
 }
