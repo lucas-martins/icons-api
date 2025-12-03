@@ -6,6 +6,8 @@ import com.lucas.icons_api.service.TimeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/times")
 @RequiredArgsConstructor
@@ -17,5 +19,10 @@ public class TimeController {
     public PageResponseDTO<TimeDTO> listar(
             @RequestParam(name = "page", defaultValue = "1") int pagina) {
         return timeService.listarPaginado(pagina);
+    }
+
+    @GetMapping("/pais/{idPais}")
+    public List<TimeDTO> listarPorPais(@PathVariable Long idPais) {
+        return timeService.listarPorPais(idPais);
     }
 }

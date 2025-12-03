@@ -11,6 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TimeService {
@@ -54,5 +56,12 @@ public class TimeService {
                 .escudo(time.getEscudo())
                 .idPais(time.getPais() != null ? time.getPais().getId() : null)
                 .build();
+    }
+
+    public List<TimeDTO> listarPorPais(Long idPais) {
+        return timeRepository.findByPaisIdOrderByNomeAsc(idPais)
+                .stream()
+                .map(this::toDTO)
+                .toList();
     }
 }
