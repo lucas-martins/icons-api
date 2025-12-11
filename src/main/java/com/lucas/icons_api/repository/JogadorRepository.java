@@ -18,10 +18,11 @@ public interface JogadorRepository extends JpaRepository<Jogador, Long> {
     List<Jogador> listarPorTime(@Param("timeId") Long timeId);
 
     @Query("""
-           select distinct jt.jogador
-           from JogadorTime jt
-           where jt.jogador.pais.id = :paisId
-           order by jt.jogador.nome
-           """)
+       select j
+       from Jogador j
+       where j.pais.id = :paisId
+       order by j.nome
+       """)
     List<Jogador> listarPorPais(@Param("paisId") Long paisId);
+
 }
