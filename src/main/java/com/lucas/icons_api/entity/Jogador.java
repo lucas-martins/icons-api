@@ -3,6 +3,8 @@ package com.lucas.icons_api.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigInteger;
+
 @Entity
 @Table(name = "jogadores")
 @Getter
@@ -21,6 +23,9 @@ public class Jogador {
 
     @Column(length = 500)
     private String foto;
+
+    @Column
+    private BigInteger over;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_pais")

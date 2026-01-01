@@ -13,7 +13,7 @@ public interface JogadorRepository extends JpaRepository<Jogador, Long> {
            select distinct jt.jogador
            from JogadorTime jt
            where jt.time.id = :timeId
-           order by jt.jogador.nome
+           order by jt.jogador.over, jt.jogador.nome
            """)
     List<Jogador> listarPorTime(@Param("timeId") Long timeId);
 
@@ -21,7 +21,7 @@ public interface JogadorRepository extends JpaRepository<Jogador, Long> {
        select j
        from Jogador j
        where j.pais.id = :paisId
-       order by j.nome
+       order by j.over, j.nome
        """)
     List<Jogador> listarPorPais(@Param("paisId") Long paisId);
 
