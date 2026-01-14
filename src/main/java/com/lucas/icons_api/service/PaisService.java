@@ -15,6 +15,6 @@ public class PaisService {
     private final PaisRepository paisRepository;
 
     public List<Pais> listar() {
-        return paisRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+        return paisRepository.findAllOrderByNomeSemAcento();
     }
 }
