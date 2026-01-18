@@ -30,4 +30,8 @@ public class Jogador {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_pais")
     private Pais pais;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_raridade")
+    private Raridade raridade;
 }
